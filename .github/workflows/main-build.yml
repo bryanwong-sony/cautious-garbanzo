@@ -10,12 +10,12 @@ on:
 
   push:
     branches:
-      - master
+      - main
 
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review] # filter by type
     branches:
-      - master
+      - main
 
 env:
   accept: "Accept: application/vnd.github+json"
@@ -30,7 +30,7 @@ jobs:
           # Get PR number (pull_request, merge_group or push)
           if [ ${{ github.event_name }} == 'pull_request' ]; then
             echo "Event type: pull request"
-            pr=${{ github.event.number }}
+            echo "PR #${{ github.event.number }}"
           elif [ ${{ github.event_name }} == 'merge_group' ]; then
             echo "Event type: merge queue"
             curl -sL -H "${{ env.accept }}" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
@@ -49,8 +49,6 @@ jobs:
 
   teardown:
     runs-on: ubuntu-latest
-    container:
-      image: alpine/latest
     steps:
       - name: Main
         run: |
