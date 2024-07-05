@@ -49,8 +49,6 @@ jobs:
 
   teardown:
     runs-on: ubuntu-latest
-    container:
-      image: alpine/latest
     steps:
       - name: Main
         run: |
