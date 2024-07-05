@@ -10,12 +10,12 @@ on:
 
   push:
     branches:
-      - master
+      - main
 
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review] # filter by type
     branches:
-      - master
+      - main
 
 env:
   accept: "Accept: application/vnd.github+json"
