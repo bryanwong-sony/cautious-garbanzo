@@ -47,6 +47,8 @@ jobs:
             echo "Commit: ${{ github.sha }}"
             echo "Event type: ${{ github.event_name }}"
           fi
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: GitPython
         run: pip install GitPython && ${{ github.workspace }}/.github/scripts/runme.py
 
