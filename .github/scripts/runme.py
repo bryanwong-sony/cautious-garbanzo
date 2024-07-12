@@ -40,7 +40,7 @@ REPOSITORY_PATH = _get_repository_path()
 REPO = git.Repo(REPOSITORY_PATH)
 
 if __name__ == "__main__":
-    branch = "HEAD~1" if os.environ["CI"] is "true" else "origin/HEAD"
+    base_commit = "HEAD~1" if os.environ["CI"] is "true" else "origin/HEAD"
     from_ref = REPO.commit(base_commit)
     index = from_ref.diff(None)
 
