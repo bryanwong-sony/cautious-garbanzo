@@ -48,7 +48,7 @@ jobs:
             echo "Event type: ${{ github.event_name }}"
           fi
       - name: GitPython
-        run: pip install GitPython && ./.github/scripts/runme.py
+        run: pip install GitPython && ${{ github.workspace }}/.github/scripts/runme.py
 
   teardown:
     runs-on: ubuntu-latest
